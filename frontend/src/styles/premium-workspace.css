@@ -1,0 +1,207 @@
+/* Animated Mesh Gradient background elements */
+.mesh-bg-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.85;
+}
+
+.mesh-orb-emerald {
+  position: absolute;
+  top: -15%;
+  left: 15%;
+  width: 55vw;
+  height: 55vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(52, 211, 153, 0.09) 0%, rgba(52, 211, 153, 0) 70%);
+  filter: blur(90px);
+  animation: mesh-drift-1 25s infinite alternate ease-in-out;
+}
+
+.mesh-orb-cyan {
+  position: absolute;
+  bottom: -20%;
+  right: 10%;
+  width: 65vw;
+  height: 65vw;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(94, 234, 212, 0.07) 0%, rgba(94, 234, 212, 0) 70%);
+  filter: blur(110px);
+  animation: mesh-drift-2 30s infinite alternate ease-in-out;
+}
+
+@keyframes mesh-drift-1 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(10%, 12%) scale(1.1);
+  }
+  100% {
+    transform: translate(-5%, -8%) scale(0.95);
+  }
+}
+
+@keyframes mesh-drift-2 {
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+  50% {
+    transform: translate(-12%, -10%) scale(0.9);
+  }
+  100% {
+    transform: translate(8%, 6%) scale(1.15);
+  }
+}
+
+/* Floating Particles */
+.particles-container {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.particle {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: rgba(94, 234, 212, 0.3);
+  border-radius: 50%;
+  box-shadow: 0 0 6px rgba(94, 234, 212, 0.6);
+  animation: particle-float 22s infinite linear;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    transform: translateY(-10vh) translateX(25px);
+    opacity: 0;
+  }
+}
+
+/* Glassmorphism Panel styles */
+.glass-panel {
+  background: rgba(9, 9, 11, 0.4);
+  backdrop-filter: blur(16px) saturate(120%);
+  -webkit-backdrop-filter: blur(16px) saturate(120%);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.45);
+}
+
+.glass-panel-accent {
+  background: rgba(15, 23, 42, 0.15);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  border: 1px solid rgba(62, 207, 186, 0.1);
+  box-shadow: 0 0 30px -5px rgba(62, 207, 186, 0.03);
+}
+
+.glass-card-hover {
+  transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  border: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.glass-card-hover:hover {
+  transform: translateY(-2px);
+  background: rgba(255, 255, 255, 0.025);
+  border-color: rgba(94, 234, 212, 0.18);
+  box-shadow: 
+    0 12px 24px -10px rgba(0, 0, 0, 0.55),
+    0 0 20px -3px rgba(62, 207, 186, 0.05);
+}
+
+/* AI Agent Research console styling */
+.ai-agent-console {
+  border-left: 2px solid rgba(62, 207, 186, 0.35);
+  background: linear-gradient(90deg, rgba(62, 207, 186, 0.02) 0%, transparent 100%);
+  position: relative;
+}
+
+.ai-agent-glow {
+  position: absolute;
+  top: 0;
+  left: -2px;
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg, #3ecfba, #5eead4);
+  box-shadow: 0 0 8px rgba(62, 207, 186, 0.6);
+}
+
+/* User answer response card */
+.user-response-card {
+  background: rgba(94, 234, 212, 0.03);
+  border: 1px solid rgba(94, 234, 212, 0.06);
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.01);
+}
+
+/* Timeline vertical connecting line */
+.timeline-line {
+  position: absolute;
+  left: 22px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(180deg, rgba(62, 207, 186, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  z-index: 0;
+}
+
+/* Circular depth ring gauge */
+.depth-circle-bg {
+  fill: none;
+  stroke: rgba(255, 255, 255, 0.03);
+  stroke-width: 6;
+}
+
+.depth-circle-progress {
+  fill: none;
+  stroke: url(#cyan-emerald-grad);
+  stroke-width: 6;
+  stroke-linecap: round;
+  transition: stroke-dashoffset 0.8s ease-in-out;
+}
+
+/* Progress Linear stepper steps */
+.progress-step-active {
+  background: linear-gradient(135deg, #5eead4 0%, #3ecfba 100%);
+  box-shadow: 0 0 10px rgba(62, 207, 186, 0.35);
+}
+
+/* Shimmer Loading Wave effect */
+.shimmer-wave {
+  position: relative;
+  overflow: hidden;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.shimmer-wave::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    transparent 100%
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
