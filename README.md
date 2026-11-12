@@ -23,11 +23,9 @@ ProbeAI streamlines this workflow through AI-assisted interviews and automated r
 ## Screenshots
 
 ### Landing Page
-
 ![ProbeAI Landing Page](./docs/screenshots/d1.png)
 
 ### Dashboard
-
 ![ProbeAI Dashboard](./docs/screenshots/d2.png)
 
 ![ProbeAI Dashboard - Analytics](./docs/screenshots/d3.png)
@@ -35,13 +33,10 @@ ProbeAI streamlines this workflow through AI-assisted interviews and automated r
 ![ProbeAI Dashboard - Interviews](./docs/screenshots/d4.png)
 
 ### AI-Powered Interview
-
 ![ProbeAI Interview](./docs/screenshots/d5.png)
 
 ### Executive Report
-
 ![ProbeAI Executive Report](./docs/screenshots/d6.png)
-
 ## Key Features
 
 - **Authentication:** Secure user registration and login with JWT-based authentication.
