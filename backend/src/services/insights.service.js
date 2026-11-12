@@ -89,7 +89,14 @@ class InsightsService {
     return await interviewInsightsRepository.updateByInterviewId(interviewId, insightsData);
   }
 
-  async getInsights(interviewId) {
+  async getInsights(interviewId, userId) {
+    const interview = await interviewRepository.findByIdAndUserId(interviewId, userId);
+    if (!interview) {
+      const err = new Error('Interview not found');
+      err.statusCode = 404;
+      throw err;
+    }
+
     return await interviewInsightsRepository.findByInterviewId(interviewId);
   }
 }

@@ -27,6 +27,12 @@ const interviewSchema = new mongoose.Schema(
       trim: true,
       maxlength: 1000,
     },
+    maxTurns: {
+      type: Number,
+      default: 10,
+      min: 1,
+      max: 50,
+    },
 
     status: {
       type: String,

@@ -37,7 +37,8 @@ class InterviewController {
   async getInterviewById(req, res, next) {
     try {
       const interview = await interviewService.getInterviewById(
-        req.params.id
+        req.params.id,
+        req.user?.userId
       );
 
       if (!interview) {
@@ -59,7 +60,8 @@ class InterviewController {
   async getTranscript(req, res, next) {
     try {
       const transcript = await messageService.getTranscript(
-        req.params.id
+        req.params.id,
+        req.user?.userId
       );
 
       res.status(200).json({
@@ -74,7 +76,8 @@ class InterviewController {
   async getInsights(req, res, next) {
     try {
       const insights = await insightsService.getInsights(
-        req.params.id
+        req.params.id,
+        req.user?.userId
       );
 
       res.status(200).json({

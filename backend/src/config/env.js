@@ -26,6 +26,8 @@ const envSchema = z.object({
     .url('OPENROUTER_BASE_URL must be a valid URL'),
 
   AI_MODEL: z.string().default('openai/gpt-4o-mini'),
+
+  CLIENT_URL: z.string().optional(),
 });
 
 const result = envSchema.safeParse(process.env);
@@ -48,6 +50,7 @@ const env = Object.freeze({
   openRouterApiKey: result.data.OPENROUTER_API_KEY,
   openRouterBaseUrl: result.data.OPENROUTER_BASE_URL,
   aiModel: result.data.AI_MODEL,
+  clientUrl: result.data.CLIENT_URL,
 });
 
 module.exports = env;

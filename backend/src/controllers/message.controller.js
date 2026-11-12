@@ -7,6 +7,7 @@ class MessageController {
 
       const message = await messageService.addMessage(
         req.params.interviewId,
+        req.user?.userId,
         role,
         content
       );
@@ -23,7 +24,8 @@ class MessageController {
   async getTranscript(req, res, next) {
     try {
       const transcript = await messageService.getTranscript(
-        req.params.interviewId
+        req.params.interviewId,
+        req.user?.userId
       );
 
       res.status(200).json({

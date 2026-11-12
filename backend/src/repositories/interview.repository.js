@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const Interview = require('../models/interview.model');
 const { ACTIVE } = require('../constants/interviewStatus');
 
@@ -7,7 +8,20 @@ class InterviewRepository {
   }
 
   findById(interviewId) {
+    if (!mongoose.isValidObjectId(interviewId)) {
+      return null;
+    }
     return Interview.findById(interviewId);
+  }
+
+  findByIdAndUserId(interviewId, userId) {
+    if (
+      !mongoose.isValidObjectId(interviewId) ||
+      (userId && !mongoose.isValidObjectId(userId))
+    ) {
+      return null;
+    }
+    return Interview.findOne({ _id: interviewId, userId });
   }
 
   findByUserId(userId) {
@@ -24,6 +38,19 @@ class InterviewRepository {
 
   findActiveInterview(interviewId) {
     return Interview.findOne({ _id: interviewId, status: ACTIVE });
+  }
+
+  markCompleted(interviewId) {
+    return Interview.findByIdAndUpdate(
+      interviewId,
+      {
+        status: 'completed',
+        completedAt: new Date(),
+      },
+      {
+        new: true,
+      }
+    );
   }
 }
 

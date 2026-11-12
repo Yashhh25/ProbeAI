@@ -17,6 +17,7 @@ const firstQuestion =
 
 await messageService.addMessage(
   interview._id,
+  userId,
   'ai',
   firstQuestion
 );
@@ -30,9 +31,12 @@ async getUserInterviews(userId) {
 return interviewRepository.findByUserId(userId);
 }
 
-async getInterviewById(interviewId) {
-return interviewRepository.findById(interviewId);
-}
+  async getInterviewById(interviewId, userId) {
+    if (userId) {
+      return interviewRepository.findByIdAndUserId(interviewId, userId);
+    }
+    return interviewRepository.findById(interviewId);
+  }
 }
 
 module.exports = new InterviewService();

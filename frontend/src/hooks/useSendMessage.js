@@ -12,6 +12,12 @@ export default function useSendMessage(interviewId) {
       queryClient.invalidateQueries({
         queryKey: ['transcript', interviewId],
       });
+      queryClient.invalidateQueries({
+        queryKey: ['interview', interviewId],
+      });
+      queryClient.invalidateQueries({
+        queryKey: ['insights', interviewId],
+      });
     },
   });
 }

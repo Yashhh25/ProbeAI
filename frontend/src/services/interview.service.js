@@ -30,3 +30,11 @@ export async function getInterviewInsights(interviewId) {
 
   return response.data.data;
 }
+
+export async function getInterviewById(interviewId) {
+  const response = await api.get(
+    `/api/v1/interviews/${interviewId}`
+  );
+
+  return response.data.data;
+}
